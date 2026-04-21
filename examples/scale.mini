@@ -1,0 +1,13 @@
+fn scale(x) {
+  let factor = 2 + 2;
+  let bias = factor - 4;
+  let unused = x * 100;
+  if (factor > 3) {
+    return x * factor + bias;
+  }
+  return -1;
+}
+
+fn main() {
+  print(scale(10));
+}
