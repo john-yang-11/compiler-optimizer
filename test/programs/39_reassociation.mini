@@ -1,0 +1,14 @@
+fn f(x) {
+  let a = x + 1;
+  let b = a + 2;
+  let c = b - 5;
+  let d = c * 2;
+  let e = d * 3;
+  return e;
+}
+
+fn main() {
+  print(f(0));
+  print(f(10));
+  print(f(-4));
+}

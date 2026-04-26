@@ -1,0 +1,14 @@
+fn tri(n) {
+  return n * (n + 1) / 2;
+}
+
+fn main() {
+  let i = 1;
+  let sum = 0;
+  while (i <= 10) {
+    print(tri(i));
+    sum = sum + tri(i);
+    i = i + 1;
+  }
+  print(sum);
+}

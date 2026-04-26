@@ -1,0 +1,23 @@
+fn gcd(a, b) {
+  while (b != 0) {
+    let t = b;
+    b = a % b;
+    a = t;
+  }
+  return a;
+}
+
+fn gcd_rec(a, b) {
+  if (b == 0) {
+    return a;
+  }
+  return gcd_rec(b, a % b);
+}
+
+fn main() {
+  print(gcd(48, 18));
+  print(gcd(1071, 462));
+  print(gcd_rec(270, 192));
+  print(gcd_rec(17, 5));
+  print(gcd(0, 9));
+}

@@ -1,0 +1,16 @@
+fn fact(n) {
+  let acc = 1;
+  while (n > 1) {
+    acc = acc * n;
+    n = n - 1;
+  }
+  return acc;
+}
+
+fn main() {
+  let k = 0;
+  while (k <= 20) {
+    print(fact(k));
+    k = k + 1;
+  }
+}

@@ -1,0 +1,9 @@
+fn main() {
+  let a = 4;
+  let b = a * a;
+  let c = b - a;
+  let d = c / 2 + a;
+  let e = d * 0 + c;
+  print(e);
+  print(d);
+}

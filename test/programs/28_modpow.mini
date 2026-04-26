@@ -1,0 +1,18 @@
+fn modpow(b, e, m) {
+  let r = 1;
+  b = b % m;
+  while (e > 0) {
+    if (e % 2 == 1) {
+      r = r * b % m;
+    }
+    b = b * b % m;
+    e = e / 2;
+  }
+  return r;
+}
+
+fn main() {
+  print(modpow(2, 10, 1000));
+  print(modpow(3, 200, 13));
+  print(modpow(7, 123456, 1000007));
+}

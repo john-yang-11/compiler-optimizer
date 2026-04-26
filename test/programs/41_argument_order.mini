@@ -1,0 +1,13 @@
+fn trace(x) {
+  print(x);
+  return x;
+}
+
+fn add3(a, b, c) {
+  return a * 100 + b * 10 + c;
+}
+
+fn main() {
+  print(add3(trace(1), trace(2), trace(3)));
+  print(trace(4) - trace(5) * trace(6));
+}

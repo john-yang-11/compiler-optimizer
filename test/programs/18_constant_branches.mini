@@ -1,0 +1,26 @@
+fn main() {
+  let debug = false;
+  let level = 3;
+  if (debug) {
+    print(-1);
+  }
+  if (level > 2) {
+    print(1);
+  } else {
+    print(2);
+  }
+  if (level == 3 && !debug) {
+    print(3);
+  }
+  if (level < 0 || debug) {
+    print(-2);
+  } else {
+    print(4);
+  }
+  let mode = level * 2 - 6;
+  if (mode) {
+    print(-3);
+  } else {
+    print(5);
+  }
+}

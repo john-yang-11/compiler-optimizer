@@ -1,0 +1,19 @@
+fn pow(b, e) {
+  let result = 1;
+  while (e > 0) {
+    if (e % 2 == 1) {
+      result = result * b;
+    }
+    b = b * b;
+    e = e / 2;
+  }
+  return result;
+}
+
+fn main() {
+  print(pow(2, 10));
+  print(pow(3, 13));
+  print(pow(7, 0));
+  print(pow(-2, 5));
+  print(pow(10, 9));
+}

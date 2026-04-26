@@ -1,0 +1,22 @@
+fn main() {
+  let x = 1;
+  let i = 0;
+  while (i < 10) {
+    if (x == 1) {
+      x = 1;
+    } else {
+      x = 2;
+    }
+    i = i + 1;
+  }
+  print(x);
+  let y = 0;
+  let j = 0;
+  while (j < 5) {
+    if (y > 0) {
+      y = y + 100;
+    }
+    j = j + 1;
+  }
+  print(y);
+}

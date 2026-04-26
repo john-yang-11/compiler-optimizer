@@ -1,0 +1,5 @@
+fn main() {
+  print(1);
+  let unused = 10 / (3 - 3);
+  print(2);
+}

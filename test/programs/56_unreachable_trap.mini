@@ -1,0 +1,11 @@
+fn main() {
+  let flag = 0;
+  if (flag) {
+    print(1 / 0);
+  }
+  let d = 0;
+  if (d != 0) {
+    print(100 / d);
+  }
+  print(7);
+}

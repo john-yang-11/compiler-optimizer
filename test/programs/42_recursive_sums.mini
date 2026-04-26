@@ -1,0 +1,19 @@
+fn sum_to(n) {
+  if (n == 0) {
+    return 0;
+  }
+  return n + sum_to(n - 1);
+}
+
+fn sum_digits(n) {
+  if (n < 10) {
+    return n;
+  }
+  return n % 10 + sum_digits(n / 10);
+}
+
+fn main() {
+  print(sum_to(100));
+  print(sum_to(1000));
+  print(sum_digits(99999));
+}

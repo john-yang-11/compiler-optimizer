@@ -1,0 +1,16 @@
+fn day_of_week(y, m, d) {
+  if (m < 3) {
+    m = m + 12;
+    y = y - 1;
+  }
+  let k = y % 100;
+  let j = y / 100;
+  return (d + 13 * (m + 1) / 5 + k + k / 4 + j / 4 + 5 * j) % 7;
+}
+
+fn main() {
+  print(day_of_week(2000, 1, 1));
+  print(day_of_week(2024, 2, 29));
+  print(day_of_week(1969, 7, 20));
+  print(day_of_week(2026, 11, 1));
+}

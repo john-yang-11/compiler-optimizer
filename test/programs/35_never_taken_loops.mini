@@ -1,0 +1,11 @@
+fn main() {
+  let x = 10;
+  while (false) {
+    x = x + 1;
+    print(x);
+  }
+  while (x < 5) {
+    print(-1);
+  }
+  print(x);
+}

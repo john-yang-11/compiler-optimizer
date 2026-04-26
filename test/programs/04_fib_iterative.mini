@@ -1,0 +1,13 @@
+fn main() {
+  let a = 0;
+  let b = 1;
+  let n = 0;
+  while (n < 40) {
+    let next = a + b;
+    a = b;
+    b = next;
+    n = n + 1;
+  }
+  print(a);
+  print(b);
+}

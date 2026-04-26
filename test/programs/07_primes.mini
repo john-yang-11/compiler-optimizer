@@ -1,0 +1,28 @@
+fn is_prime(n) {
+  if (n < 2) {
+    return false;
+  }
+  let d = 2;
+  while (d * d <= n) {
+    if (n % d == 0) {
+      return false;
+    }
+    d = d + 1;
+  }
+  return true;
+}
+
+fn main() {
+  let count = 0;
+  let last = 0;
+  let n = 0;
+  while (n < 500) {
+    if (is_prime(n)) {
+      count = count + 1;
+      last = n;
+    }
+    n = n + 1;
+  }
+  print(count);
+  print(last);
+}

@@ -1,0 +1,15 @@
+fn popcount(n) {
+  let c = 0;
+  while (n > 0) {
+    c = c + n % 2;
+    n = n / 2;
+  }
+  return c;
+}
+
+fn main() {
+  print(popcount(0));
+  print(popcount(255));
+  print(popcount(1023));
+  print(popcount(12345));
+}

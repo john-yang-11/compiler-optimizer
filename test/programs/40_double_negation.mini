@@ -1,0 +1,9 @@
+fn main() {
+  let i = -3;
+  while (i <= 3) {
+    print(!!i);
+    print(-(-i));
+    print(!(i < 0));
+    i = i + 1;
+  }
+}

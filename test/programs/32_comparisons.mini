@@ -1,0 +1,14 @@
+fn main() {
+  let x = 5;
+  let y = 7;
+  print(x < y);
+  print(x <= y);
+  print(x > y);
+  print(x >= y);
+  print(x == y);
+  print(x != y);
+  print(x == 5);
+  print(y >= 7);
+  print((x < y) == (y > x));
+  print((x < y) + (y < x) + (x == x));
+}

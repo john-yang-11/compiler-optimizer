@@ -1,0 +1,10 @@
+fn main() {
+  print(1 + 2 * 3);
+  print((1 + 2) * 3);
+  print(10 - 4 - 3);
+  print(17 / 5);
+  print(17 % 5);
+  print(-17 / 5);
+  print(-17 % 5);
+  print(-(3 - 10));
+}

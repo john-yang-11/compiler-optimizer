@@ -1,0 +1,25 @@
+fn divisor_sum(n) {
+  let s = 1;
+  let d = 2;
+  while (d * d <= n) {
+    if (n % d == 0) {
+      s = s + d;
+      let q = n / d;
+      if (q != d) {
+        s = s + q;
+      }
+    }
+    d = d + 1;
+  }
+  return s;
+}
+
+fn main() {
+  let n = 2;
+  while (n < 10000) {
+    if (divisor_sum(n) == n) {
+      print(n);
+    }
+    n = n + 1;
+  }
+}

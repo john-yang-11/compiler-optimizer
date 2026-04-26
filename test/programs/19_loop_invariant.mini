@@ -1,0 +1,12 @@
+fn main() {
+  let scale = 3;
+  let offset = scale * 4 + 1;
+  let i = 0;
+  let acc = 0;
+  while (i < 10) {
+    let k = scale * offset;
+    acc = acc + k + i;
+    i = i + 1;
+  }
+  print(acc);
+}

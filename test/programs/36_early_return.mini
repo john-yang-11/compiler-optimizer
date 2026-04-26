@@ -1,0 +1,16 @@
+fn first_multiple(start, k) {
+  let n = start;
+  while (true) {
+    if (n % k == 0) {
+      return n;
+    }
+    n = n + 1;
+  }
+  return -1;
+}
+
+fn main() {
+  print(first_multiple(10, 7));
+  print(first_multiple(100, 13));
+  print(first_multiple(1, 1));
+}

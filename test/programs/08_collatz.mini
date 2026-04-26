@@ -1,0 +1,29 @@
+fn collatz_len(n) {
+  let steps = 0;
+  while (n != 1) {
+    if (n % 2 == 0) {
+      n = n / 2;
+    } else {
+      n = 3 * n + 1;
+    }
+    steps = steps + 1;
+  }
+  return steps;
+}
+
+fn main() {
+  let best = 0;
+  let best_n = 0;
+  let i = 1;
+  while (i < 1000) {
+    let len = collatz_len(i);
+    if (len > best) {
+      best = len;
+      best_n = i;
+    }
+    i = i + 1;
+  }
+  print(best_n);
+  print(best);
+  print(collatz_len(27));
+}

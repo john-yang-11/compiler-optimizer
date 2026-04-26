@@ -1,0 +1,15 @@
+fn choose(n, k) {
+  if (k == 0 || k == n) {
+    return 1;
+  }
+  return choose(n - 1, k - 1) + choose(n - 1, k);
+}
+
+fn main() {
+  let k = 0;
+  while (k <= 8) {
+    print(choose(8, k));
+    k = k + 1;
+  }
+  print(choose(16, 8));
+}

@@ -1,0 +1,5 @@
+(test
+ (name test_main)
+ (libraries optimizer ounit2)
+ (deps
+  (source_tree programs)))

@@ -1,0 +1,33 @@
+fn main() {
+  let i = 0;
+  let sum = 0;
+  while (true) {
+    i = i + 1;
+    if (i > 20) {
+      break;
+    }
+    if (i % 3 == 0) {
+      continue;
+    }
+    sum = sum + i;
+  }
+  print(sum);
+  let outer = 0;
+  let pairs = 0;
+  while (outer < 5) {
+    let inner = 0;
+    while (inner < 5) {
+      if (inner == outer) {
+        inner = inner + 1;
+        continue;
+      }
+      if (inner > 3) {
+        break;
+      }
+      pairs = pairs + 1;
+      inner = inner + 1;
+    }
+    outer = outer + 1;
+  }
+  print(pairs);
+}

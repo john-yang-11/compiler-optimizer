@@ -1,0 +1,15 @@
+fn m91(n) {
+  if (n > 100) {
+    return n - 10;
+  }
+  return m91(m91(n + 11));
+}
+
+fn main() {
+  print(m91(1));
+  print(m91(50));
+  print(m91(99));
+  print(m91(100));
+  print(m91(101));
+  print(m91(200));
+}

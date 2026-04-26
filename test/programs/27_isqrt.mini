@@ -1,0 +1,28 @@
+fn isqrt(n) {
+  if (n < 2) {
+    return n;
+  }
+  let lo = 1;
+  let hi = n;
+  let ans = 1;
+  while (lo <= hi) {
+    let mid = (lo + hi) / 2;
+    if (mid <= n / mid) {
+      ans = mid;
+      lo = mid + 1;
+    } else {
+      hi = mid - 1;
+    }
+  }
+  return ans;
+}
+
+fn main() {
+  print(isqrt(0));
+  print(isqrt(1));
+  print(isqrt(15));
+  print(isqrt(16));
+  print(isqrt(17));
+  print(isqrt(1000000));
+  print(isqrt(999999999));
+}

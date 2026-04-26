@@ -1,0 +1,17 @@
+fn sq(x) {
+  return x * x;
+}
+
+fn inc(x) {
+  return x + 1;
+}
+
+fn dbl(x) {
+  return x + x;
+}
+
+fn main() {
+  print(sq(inc(dbl(3))));
+  print(dbl(sq(inc(3))));
+  print(inc(inc(inc(sq(sq(2))))));
+}

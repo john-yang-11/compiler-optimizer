@@ -1,0 +1,22 @@
+fn gcd(a, b) {
+  while (b != 0) {
+    let t = b;
+    b = a % b;
+    a = t;
+  }
+  return a;
+}
+
+fn lcm(a, b) {
+  return a / gcd(a, b) * b;
+}
+
+fn main() {
+  let acc = 1;
+  let i = 1;
+  while (i <= 20) {
+    acc = lcm(acc, i);
+    i = i + 1;
+  }
+  print(acc);
+}

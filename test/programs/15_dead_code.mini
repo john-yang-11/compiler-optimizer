@@ -1,0 +1,17 @@
+fn helper(x) {
+  return x * 2;
+  print(999);
+  let y = x + 1;
+  return y;
+}
+
+fn main() {
+  let unused1 = 10 * 20;
+  let unused2 = unused1 + 5;
+  let a = 3;
+  let b = a + 4;
+  let c = b * 2;
+  print(helper(c));
+  return;
+  print(12345);
+}

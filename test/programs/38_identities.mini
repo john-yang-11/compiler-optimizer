@@ -1,0 +1,28 @@
+fn identities(x) {
+  let a = x + 0;
+  let b = a * 1;
+  let c = b - 0;
+  let d = c / 1;
+  let e = d - d;
+  let f = d * 0;
+  let g = 0 - d;
+  let h = d % 1;
+  print(a);
+  print(b);
+  print(c);
+  print(d);
+  print(e);
+  print(f);
+  print(g);
+  print(h);
+  print(x == x);
+  print(x != x);
+  print(x < x);
+  print(x <= x);
+  return d;
+}
+
+fn main() {
+  print(identities(17));
+  print(identities(-3));
+}

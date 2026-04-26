@@ -1,0 +1,23 @@
+fn noisy(x) {
+  print(x);
+  return x;
+}
+
+fn main() {
+  if (noisy(0) && noisy(1)) {
+    print(100);
+  }
+  if (noisy(1) || noisy(2)) {
+    print(200);
+  }
+  if (noisy(3) && noisy(4)) {
+    print(300);
+  }
+  if (noisy(0) || noisy(0)) {
+    print(400);
+  } else {
+    print(500);
+  }
+  let t = noisy(2) && noisy(5);
+  print(t);
+}

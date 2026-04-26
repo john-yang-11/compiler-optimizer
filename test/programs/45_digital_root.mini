@@ -1,0 +1,18 @@
+fn digital_root(n) {
+  while (n >= 10) {
+    let s = 0;
+    while (n > 0) {
+      s = s + n % 10;
+      n = n / 10;
+    }
+    n = s;
+  }
+  return n;
+}
+
+fn main() {
+  print(digital_root(0));
+  print(digital_root(9875));
+  print(digital_root(123456789));
+  print(digital_root(999999999999));
+}

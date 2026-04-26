@@ -1,0 +1,14 @@
+fn safe_div(a, b) {
+  if (b == 0) {
+    return 0;
+  }
+  return a / b;
+}
+
+fn main() {
+  print(safe_div(10, 2));
+  print(safe_div(7, 0));
+  let z = 0;
+  print(5 % z);
+  print(99);
+}

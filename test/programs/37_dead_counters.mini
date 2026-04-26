@@ -1,0 +1,11 @@
+fn main() {
+  let i = 0;
+  let wasted = 0;
+  let also = 100;
+  while (i < 50) {
+    wasted = wasted + i * 2;
+    also = also - 1;
+    i = i + 1;
+  }
+  print(i);
+}
