@@ -14,10 +14,10 @@ Across the 60 programs in `test/programs`, the `-O1` pipeline removes **25.8% of
 
 ## Building
 
-Requires OCaml ≥ 5.0, Dune ≥ 3.0, and OUnit2 for the tests.
+Requires OCaml ≥ 5.0, Dune ≥ 3.0, OUnit2 for the tests, and js_of_ocaml for the playground.
 
 ```sh
-opam install dune ounit2
+opam install dune ounit2 js_of_ocaml
 dune build
 dune test
 ```
@@ -74,7 +74,6 @@ dune exec ./bin/optc.exe -- llvm test/programs/03_fib_recursive.mini > fib.ll &&
 - **Run** steps through execution of the `-O0` or `-O1` IR. It highlights the current instruction and the branch taken, and shows the call stack with each frame's registers and the program output.
 
 ```sh
-opam install js_of_ocaml js_of_ocaml-ppx
 bash web/build.sh                       # writes web/optimizer.js
 python3 -m http.server -d web 8000      # open http://localhost:8000
 cd web && vercel deploy --prod          # update the live site

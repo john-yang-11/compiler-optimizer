@@ -12,7 +12,7 @@ jobs:
       - uses: ocaml/setup-ocaml@v3
         with:
           ocaml-compiler: "5.2"
-      - run: opam install -y dune ounit2
+      - run: opam install -y dune ounit2 js_of_ocaml
       - run: opam exec -- dune build
       - run: opam exec -- dune test
       - run: sudo apt-get update && sudo apt-get install -y llvm

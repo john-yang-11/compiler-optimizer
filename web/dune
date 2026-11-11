@@ -1,7 +1,6 @@
 (executable
  (name playground)
  (modes js)
- (optional)
  (libraries optimizer js_of_ocaml))
 
 (executable
