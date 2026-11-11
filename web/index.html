@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Optimizer Playground</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>compiler-optimizer <span>playground</span></h1>
+  <nav role="tablist">
+    <button role="tab" data-view="optimize" aria-selected="true">Optimize</button>
+    <button role="tab" data-view="run" aria-selected="false">Run</button>
+  </nav>
+</header>
+
+<main>
+  <section id="editor-pane">
+    <div class="row">
+      <label for="examples">Example</label>
+      <select id="examples"></select>
+      <button id="compile" class="primary">Compile ▸</button>
+    </div>
+    <textarea id="source" spellcheck="false" aria-label="Source program"></textarea>
+    <div id="error" role="alert" hidden></div>
+    <div id="summary"></div>
+  </section>
+
+  <section id="optimize-view" class="view">
+    <div class="controls">
+      <button id="opt-prev" aria-label="Previous pass">◀</button>
+      <input id="opt-slider" type="range" min="0" value="0" aria-label="Pass step">
+      <button id="opt-next" aria-label="Next pass">▶</button>
+      <span id="opt-label"></span>
+    </div>
+    <div id="timeline"></div>
+    <p id="pass-desc"></p>
+    <div id="opt-fns" class="fn-tabs"></div>
+    <div class="split">
+      <div class="panel"><h2>Control-flow graph</h2><div id="opt-cfg" class="cfg"></div></div>
+      <div class="panel"><h2>IR diff vs previous step</h2><pre id="opt-diff" class="ir"></pre></div>
+    </div>
+  </section>
+
+  <section id="run-view" class="view" hidden>
+    <div class="controls">
+      <select id="run-level" aria-label="Optimization level">
+        <option value="1">-O1 (optimized)</option>
+        <option value="0">-O0 (unoptimized)</option>
+      </select>
+      <button id="run-first" aria-label="First step">⏮</button>
+      <button id="run-prev" aria-label="Step back">◀</button>
+      <button id="run-play" aria-label="Play">▶ Play</button>
+      <button id="run-next" aria-label="Step forward">▶|</button>
+      <button id="run-last" aria-label="Last step">⏭</button>
+      <input id="run-slider" type="range" min="0" value="0" aria-label="Execution step">
+      <span id="run-label"></span>
+    </div>
+    <p id="run-desc"></p>
+    <div class="split">
+      <div class="panel"><h2 id="run-cfg-title">Control-flow graph</h2><div id="run-cfg" class="cfg"></div></div>
+      <div class="panel side">
+        <h2>Call stack</h2><div id="stack"></div>
+        <h2>Output</h2><pre id="console"></pre>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dagre/0.8.5/dagre.min.js"></script>
+<script src="optimizer.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

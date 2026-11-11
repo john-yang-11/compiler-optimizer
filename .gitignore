@@ -2,3 +2,4 @@ _build/
 *.install
 *.ll
 .merlin
+web/optimizer.js

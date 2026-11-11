@@ -35,21 +35,22 @@ type result = { program : Ir.program; reports : report list; rounds : int }
 
 let dedup xs = List.fold_left (fun acc x -> if List.mem x acc then acc else acc @ [ x ]) [] xs
 
-let run ?(verify = true) ?(max_rounds = 16) pipeline (prog : Ir.program) =
+let run ?(verify = true) ?(max_rounds = 16) ?(on_pass = fun ~round:_ _ _ -> ()) pipeline (prog : Ir.program) =
   let passes = List.map find pipeline in
   let reports = List.map (fun n -> { pass_name = n; invocations = 0; removed = 0 }) (dedup pipeline) in
   let report_for n = List.find (fun r -> r.pass_name = n) reports in
-  let apply prog (p : pass) =
+  let apply round prog (p : pass) =
     let before = Ir.program_size prog in
     let prog' = List.map p.run prog in
     if verify then (try Verify.program prog' with Verify.Invalid msg -> raise (Verify.Invalid (p.name ^ ": " ^ msg)));
     let r = report_for p.name in
     r.invocations <- r.invocations + 1;
     r.removed <- r.removed + (before - Ir.program_size prog');
+    on_pass ~round p.name prog';
     prog'
   in
   let rec loop prog round =
-    let prog' = List.fold_left apply prog passes in
+    let prog' = List.fold_left (apply round) prog passes in
     if prog' = prog || round >= max_rounds then (prog', round) else loop prog' (round + 1)
   in
   let program, rounds = loop prog 1 in

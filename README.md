@@ -10,6 +10,8 @@ source ──► lexer ──► parser ──► AST ──► lowering ──�
 
 Across the 60 programs in `test/programs`, the `-O1` pipeline removes **25.8% of static instructions** and **18.1% of executed instructions**. Every program prints the same output as the source-level reference interpreter, at both `-O0` and `-O1`, and also when compiled to LLVM and run under `lli`.
 
+**Try it in the browser: [compiler-optimizer-playground.vercel.app](https://compiler-optimizer-playground.vercel.app).** Step through each optimization pass and watch the program execute.
+
 ## Building
 
 Requires OCaml ≥ 5.0, Dune ≥ 3.0, and OUnit2 for the tests.
@@ -63,6 +65,22 @@ dune exec ./bin/optc.exe -- ir --stats examples/scale.mini
 dune exec ./bin/optc.exe -- ir --passes=constprop,dce examples/scale.mini
 dune exec ./bin/optc.exe -- llvm test/programs/03_fib_recursive.mini > fib.ll && lli fib.ll
 ```
+
+## Playground
+
+`web/` is a browser front end that runs this same compiler, compiled to JavaScript with js_of_ocaml. It is live at https://compiler-optimizer-playground.vercel.app.
+
+- **Optimize** steps through every pass the `-O1` pipeline runs. Each step shows the control-flow graph, with new instructions highlighted, and a diff against the previous step.
+- **Run** steps through execution of the `-O0` or `-O1` IR. It highlights the current instruction and the branch taken, and shows the call stack with each frame's registers and the program output.
+
+```sh
+opam install js_of_ocaml js_of_ocaml-ppx
+bash web/build.sh                       # writes web/optimizer.js
+python3 -m http.server -d web 8000      # open http://localhost:8000
+cd web && vercel deploy --prod          # update the live site
+```
+
+Under js_of_ocaml, OCaml's `int` is 32-bit, so programs with literals or results beyond ±2³¹ behave differently than in the native build. Execution traces in the page stop after 20,000 steps.
 
 ## The IR
 

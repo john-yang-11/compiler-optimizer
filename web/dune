@@ -1,0 +1,19 @@
+(executable
+ (name playground)
+ (modes js)
+ (optional)
+ (libraries optimizer js_of_ocaml))
+
+(executable
+ (name gen_examples)
+ (modules gen_examples))
+
+(rule
+ (targets examples.ml)
+ (deps
+  (glob_files %{project_root}/examples/*.mini)
+  (glob_files %{project_root}/test/programs/*.mini))
+ (action
+  (with-stdout-to
+   examples.ml
+   (run ./gen_examples.exe %{deps}))))
